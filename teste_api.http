@@ -1,0 +1,66 @@
+### Variáveis
+@baseUrl = http://localhost:5000
+
+###
+
+### GET - Rota inicial
+GET @baseUrl/
+
+###
+
+### POST - Criar usuário 1
+POST @baseUrl/usuarios
+Content-Type: application/json
+
+{
+  "nome": "João Silva",
+  "email": "joao@email.com",
+  "senha": "senha123",
+  "cpf": "12345678900"
+}
+
+###
+
+### POST - Criar usuário 2
+POST @baseUrl/usuarios
+Content-Type: application/json
+
+{
+  "nome": "Maria Santos",
+  "email": "maria@email.com",
+  "senha": "senha456",
+  "cpf": "98765432100"
+}
+
+###
+
+### GET - Listar todos os usuários
+GET @baseUrl/usuarios
+
+###
+
+### GET - Buscar usuário por CPF
+GET @baseUrl/usuarios/12345678900
+
+###
+
+### GET - Buscar usuário inexistente
+GET @baseUrl/usuarios/99999999999
+
+###
+
+### DELETE - Deletar usuário
+DELETE @baseUrl/usuarios/12345678900
+
+###
+
+### POST - Tentar criar usuário com CPF duplicado
+POST @baseUrl/usuarios
+Content-Type: application/json
+
+{
+  "nome": "Outro Nome",
+  "email": "outro@email.com",
+  "senha": "senha789",
+  "cpf": "98765432100"
+}
